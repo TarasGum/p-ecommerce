@@ -1,0 +1,47 @@
+:root {
+  --clr-main: #0d6efd;
+  --clr-main-gradient: linear-gradient(180deg, #127fff 0%, #0067ff 100%);
+
+  --clr-dark-800: #171717;
+  --clr-dark-600: #505050;
+  --clr-dark-500: #8b96a5;
+  --clr-dark-400: #bdc4cd;
+  --clr-dark-300: #dee2e7;
+  --clr-dark-200: #eff2f4;
+  --clr-dark-100: #f7fafc;
+  --clr-light: #fff;
+  --clr-red: #fa3434;
+  --clr-orange: #ff9017;
+  --clr-green: #00b517;
+
+  --fz-800: 48px;
+  --fz-700: 32px;
+  --fz-600: 24px;
+  --fz-500: 20px;
+  --fz-400: 18px;
+  --fz-300: 16px;
+  --fz-200: 14px;
+  --fz-100: 12px;
+
+  --transition: 0.3s;
+
+  --border: 1px solid var(--clr-dark-300);
+
+  --radius-800: 24px;
+  --radius-600: 18px;
+  --radius-500: 16px;
+  --radius-400: 14px;
+  --radius-300: 10px;
+  --radius-200: 8px;
+  --radius-100: 6px;
+
+  --content-width: 1180px;
+  --content-sm-width: 926px;
+  --content-offset: 40px;
+  --content-padding: 14px;
+
+  --container-width: calc(var(--content-width) + (2 * var(--content-padding)));
+  --container-sm-width: calc(
+    var(--content-sm-width) + (2 * var(--content-padding))
+  );
+}

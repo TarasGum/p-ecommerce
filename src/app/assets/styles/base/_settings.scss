@@ -1,0 +1,33 @@
+body {
+	font-family: 'Inter', sans-serif;
+	background-color: var(--clr-dark-100);
+}
+
+.container {
+	max-width: var(--container-width);
+	padding: 0 var(--content-padding);
+	margin: 0 auto;
+
+	&_sm {
+		max-width: var(--container-sm-width);
+	}
+}
+
+.section {
+	margin-top: var(--content-offset);
+}
+
+* {
+	transition: 0.1s;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--clr-dark-800: #f3f4f4;
+		--clr-dark-500: #8b8b8b;
+		--clr-dark-300: #4d4d4d;
+		--clr-dark-200: #333;
+		--clr-dark-100: #292929;
+		--clr-light: #171717;
+	}
+}
