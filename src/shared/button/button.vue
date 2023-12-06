@@ -3,6 +3,7 @@ interface Props {
   size: "small" | "normal" | "large";
   content: "text" | "icon" | "icon+text" | "text+icon";
   color: "primary" | "light";
+  type?: "reset" | "submit";
   group?: "left" | "right" | "middle";
 }
 
@@ -10,11 +11,28 @@ const props = withDefaults(defineProps<Props>(), {
   size: "normal",
   color: "primary",
   content: "text",
+  type: undefined,
 });
+
+const emit = defineEmits<{
+  (e: "click"): void;
+  (e: "reset"): void;
+  (e: "submit"): void;
+}>();
+
+const click = () => {
+  emit("click");
+  emit("submit");
+  emit("reset");
+};
 </script>
 
 <template>
-  <button class="button" :class="[props.size, props.color, props.group]">
+  <button
+    @click="click"
+    :type="props.type"
+    class="button"
+    :class="[props.size, props.color, props.group]">
     <slot name="icon" v-if="props.content === 'icon+text'"></slot>
 
     <slot name="body"></slot>
@@ -25,32 +43,27 @@ const props = withDefaults(defineProps<Props>(), {
 <style lang="scss" scoped>
 .button {
   @include flex-all-center;
-  transition: var(--transition);
-}
-
-.button:hover {
-  filter: brightness(1.2);
-  transition: var(--transition);
+  transition: filter var(--transition);
 }
 
 .small {
   height: 30px;
   padding: 0px 10px;
-  border-radius: 6px;
+  border-radius: var(--radius-100);
   font-size: var(--fz-200);
 }
 
 .normal {
   height: 40px;
   padding: 0px 16px;
-  border-radius: 6px;
+  border-radius: var(--radius-100);
   font-size: var(--fz-300);
 }
 
 .large {
   height: 54px;
   padding: 0px 20px;
-  border-radius: 8px;
+  border-radius: var(--radius-200);
   font-size: var(--fz-400);
 }
 
@@ -59,10 +72,19 @@ const props = withDefaults(defineProps<Props>(), {
   color: var(--clr-light);
 }
 
+.primary:hover {
+  filter: brightness(1.2);
+  transition: filter var(--transition);
+}
+
 .light {
   background-color: var(--clr-light);
   border: 1px solid var(--gray-300, #dee2e7);
   color: var(--clr-main);
+}
+.light:hover {
+  filter: brightness(0.95);
+  transition: filter var(--transition);
 }
 
 .left {
