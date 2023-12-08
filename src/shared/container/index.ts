@@ -1,1 +1,1 @@
-export { default as myContainer } from "./container.vue";
+export { default as MyContainer } from "./container.vue";

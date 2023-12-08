@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { myHeader } from "@/widgets/header";
-import { RouterLink, RouterView } from "vue-router";
+import { MyHeader } from "@/widgets/header";
 </script>
 
 <template>
+  <MyHeader />
   <RouterView />
 </template>
 
